@@ -54,7 +54,7 @@ jobs:
         with:
           author_name: Koko Huang
           author_email: huangjianke@vip.163.com
-          message: "update weibo post(${{steps.date.outputs.date}})"
+          message: "已同步最新数据(${{steps.date.outputs.date}})"
           add: "./"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
