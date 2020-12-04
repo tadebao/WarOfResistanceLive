@@ -1,0 +1,100 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Spider Bot
+
+# Controls when the action will run.
+on:
+  # 定时触发，在每天的 8:00-23:00 每隔 2 小时更新一次(https://crontab.guru)
+  schedule:
+    - cron: "0 8-23/2 * * *"
+
+  # 允许手动触发 Actions
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # 检出仓库
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # 设置 Python 环境
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.x"
+
+      # 安装依赖
+      - name: Install dependencies
+        working-directory: ./spider
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8 pytest
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      # 运行爬虫脚本
+      - name: Run Spider Bot
+        working-directory: ./spider
+        run: python weibo.py
+
+      # 获取当前时间
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+
+      # 提交修改
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v5
+        with:
+          author_name: Koko Huang
+          author_email: huangjianke@vip.163.com
+          message: "update weibo post(${{steps.date.outputs.date}})"
+          add: "./docs"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # 推送
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          branch: main
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      # 设置 Node.js 环境
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+
+      # 缓存依赖
+      - name: Cache NPM dependencies
+        uses: actions/cache@v2
+        with:
+          path: ./site/node_modules
+          key: ${{ runner.OS }}-npm-cache
+          restore-keys: |
+            ${{ runner.OS }}-npm-cache
+
+      # 安装依赖
+      - name: Install Dependencies
+        working-directory: ./site
+        run: npm install
+
+      # 构建 Hexo
+      - name: Build
+        working-directory: ./site
+        run: npm run build
+
+      # 发布
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site/public
+          publish_branch: gh-pages
