@@ -4,9 +4,9 @@ name: Spider Bot
 
 # Controls when the action will run.
 on:
-  # 定时触发，在每天的 8:00-23:00 每隔 2 小时更新一次(https://crontab.guru)
+  # 定时触发，每隔 2 小时更新一次(https://crontab.guru)
   schedule:
-    - cron: "0 8-23/2 * * *"
+    - cron: "0 */2 * * *"
 
   # 允许手动触发 Actions
   workflow_dispatch:
@@ -30,8 +30,19 @@ jobs:
         with:
           python-version: "3.x"
 
-      # 安装依赖
-      - name: Install dependencies
+      # 缓存 pip 依赖，如果没有命中缓存，则执行 pip install
+      - name: Cache pip dependencies
+        id: pip-cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+      
+      # 安装 pip 依赖
+      - name: Install pip dependencies
+        if: steps.pip-cache.outputs.cache-hit != 'true'
         working-directory: ./spider
         run: |
           python -m pip install --upgrade pip
@@ -72,17 +83,19 @@ jobs:
         with:
           node-version: "12.x"
 
-      # 缓存依赖
+      # 缓存 npm 依赖，如果没有命中缓存，则执行 npm install
       - name: Cache NPM dependencies
+        id: npm-cache
         uses: actions/cache@v2
         with:
-          path: ./site/node_modules
-          key: ${{ runner.OS }}-npm-cache
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.OS }}-npm-cache
+            ${{ runner.os }}-node-
 
       # 安装依赖
       - name: Install Dependencies
+        if: steps.npm-cache.outputs.cache-hit != 'true'
         working-directory: ./site
         run: npm install
 
