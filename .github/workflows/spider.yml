@@ -30,7 +30,7 @@ jobs:
         with:
           python-version: "3.x"
 
-      # 缓存 pip 依赖，如果没有命中缓存，则执行 pip install
+      # 缓存 pip 依赖
       - name: Cache pip dependencies
         id: pip-cache
         uses: actions/cache@v2
@@ -42,7 +42,6 @@ jobs:
       
       # 安装 pip 依赖
       - name: Install pip dependencies
-        if: steps.pip-cache.outputs.cache-hit != 'true'
         working-directory: ./spider
         run: |
           python -m pip install --upgrade pip
@@ -83,7 +82,7 @@ jobs:
         with:
           node-version: "12.x"
 
-      # 缓存 npm 依赖，如果没有命中缓存，则执行 npm install
+      # 缓存 npm 依赖
       - name: Cache NPM dependencies
         id: npm-cache
         uses: actions/cache@v2
@@ -95,7 +94,6 @@ jobs:
 
       # 安装依赖
       - name: Install Dependencies
-        if: steps.npm-cache.outputs.cache-hit != 'true'
         working-directory: ./site
         run: npm install
 
