@@ -95,6 +95,20 @@ include:
 exclude:
 ignore:
 
+feed:
+  enable: true
+  type: atom
+  path: atom.xml
+  limit: 30
+  hub:
+  content:
+  content_limit: 300
+  content_limit_delim: ' '
+  order_by: -date
+  icon: icon.png
+  autodiscovery: true
+  template:
+
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
