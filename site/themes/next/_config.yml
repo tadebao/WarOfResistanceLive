@@ -120,7 +120,7 @@ menu:
   archives: /archives/ || fa fa-archive
   # blogger: https://weibo.com/kzzb || fab fa-weibo
   about: /about/ || fa fa-user
-  # Github: https://github.com/kokohuang/WarOfResistanceLive || fab fa-github
+  Github: https://github.com/kokohuang/WarOfResistanceLive || fab fa-github
   # schedule: /schedule/ || fa fa-calendar
   # sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
@@ -376,7 +376,7 @@ reading_progress:
 
 # Bookmark Support
 bookmark:
-  enable: true
+  enable: false
   # Customize the color of the bookmark.
   color: "#222"
   # If auto, save the reading progress when closing the page or clicking the bookmark-icon.
