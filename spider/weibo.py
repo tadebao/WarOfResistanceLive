@@ -60,6 +60,7 @@ class Weibo(object):
         self.got_count = 0  # 存储爬取到的微博数
         self.weibo = []  # 存储爬取到的所有微博信息
         self.weibo_id_list = []  # 存储爬取到的所有微博id
+        self.date_set = set([]) # 存储爬取到的日期
 
     def validate_config(self, config):
         """验证配置是否正确"""
@@ -597,7 +598,9 @@ class Weibo(object):
         weibo_info = self.weibo[wrote_count:]
         path = self.get_filepath('json')
         for wb in weibo_info:
-            dir_path = path + os.path.sep + wb['history_date']
+            history_date = wb['history_date']
+            self.date_set.add(history_date)
+            dir_path = path + os.path.sep + history_date
             if not os.path.isdir(dir_path):
                 os.makedirs(dir_path)
             file_path = dir_path + os.path.sep + str(wb['id']) + '.json'
@@ -608,13 +611,11 @@ class Weibo(object):
 
     def write_md(self):
         """按天分类将微博信息写入md文件"""
-        resources_dir = os.path.abspath(
-            os.path.dirname(os.path.dirname(__file__))) + os.path.sep + 'resources'
+        resources_dir = self.get_filepath('json')
         if not os.path.isdir(resources_dir):
             return
-        list_dir = os.listdir(resources_dir)
         json_list = []
-        for dir in list_dir:
+        for dir in self.date_set:
             json_list = []
             dir_path = os.path.join(resources_dir, dir)
             if not os.path.isdir(dir_path):
@@ -636,8 +637,7 @@ class Weibo(object):
 
         wb = list[0]
         create_date = wb['created_at']
-        categories = '抗日战争(1937-1945)' if wb['type'] == 0 else '局部抗战(1931-1937)'
-        # date = datetime.strptime(title, '%Y年%m月%d日').strftime('%Y-%m-%d')
+        categories = '全面抗战(1937-1945)' if wb['type'] == 0 else '局部抗战(1931-1937)'
         content = (
             f'---\n'
             f'layout: post\n'
@@ -723,6 +723,7 @@ class Weibo(object):
         self.user_config = user_config
         self.got_count = 0
         self.weibo_id_list = []
+        self.date_set = set([])
 
     def start(self):
         """运行爬虫"""

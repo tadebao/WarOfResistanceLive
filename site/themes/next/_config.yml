@@ -114,8 +114,8 @@ darkmode: false
 # External url should start with http:// or https://
 menu:
   home: / || fa fa-home
-  1931-1937: /categories/局部抗战-1931-1937/ || fa fa-calendar-alt
-  1937-1945: /categories/抗日战争-1937-1945/ || fa fa-calendar
+  局部抗战: /categories/局部抗战-1931-1937/ || fa fa-calendar-alt
+  全面抗战: /categories/全面抗战-1937-1945/ || fa fa-calendar
   #tags: /tags/ || fa fa-tags
   # archives: /archives/ || fa fa-archive
   # blogger: https://weibo.com/kzzb || fab fa-weibo
