@@ -2,18 +2,18 @@
 
 name: Spider Bot
 
+# 设置时区
+env:
+  TZ: Asia/Shanghai
+
 # Controls when the action will run.
 on:
   # 定时触发，每隔 2 小时更新一次(https://crontab.guru)
   schedule:
-    - cron: "0 */2 * * *"
+    - cron: "37 7-23/2 * * *"
 
   # 允许手动触发 Actions
   workflow_dispatch:
-
-# 设置时区
-env:
-  TZ: Asia/Shanghai
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
