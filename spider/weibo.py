@@ -372,7 +372,6 @@ class Weibo(object):
         # 临界时间
         temp_date = datetime.strptime('2020-09-02', '%Y-%m-%d')
         isBefore = created_at > temp_date
-        # 去除所有空格
         match = re.match(r'(\d{4}年\d{1,2}月\d{1,2}日)', weibo['text'])
         if not match:
             years = 89 if isBefore else 75
