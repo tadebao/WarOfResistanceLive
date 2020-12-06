@@ -1,5 +1,7 @@
 # 抗战直播
 
+**预览地址**：[https://kokohuang.github.io/WarOfResistanceLive](https://kokohuang.github.io/WarOfResistanceLive/)
+
 在目前浮躁的互联网环境下，做一件好事不难，难的是连续8年做一件有意义的事。
 
 在微博上有这样一位博主，从2012年7月7日开始，截至到2020年9月2日，[@抗战直播](https://weibo.com/kzzb) 以图文形式，记录了从**1937年7月7日至1945年8月15日**中华民族全面抗战的这段历史。**2980** 天，从未间断，平均每天 **12** 条，累计 **35214** 篇。
@@ -9,8 +11,6 @@
 [@抗战直播](https://weibo.com/kzzb)：“我们直播抗战，并非为了鼓动仇恨等负面的情绪，而是想适度唤起遗忘，当我们时刻牢记祖辈们蒙受的苦难、恐惧和屈辱时；当我们体味祖辈们是如何在国家民族危亡之际抛弃前嫌，实现民族和解时，当我们目睹着祖辈们是如何从容慷慨的走向死亡，以身体为这个国家献祭之时，相信我们对于现实将有更加成熟和理性的思考。”
 
 下一个 **6** 年，他们已经在路上。
-
-**预览地址**：[https://kokohuang.github.io/WarOfResistanceLive](https://kokohuang.github.io/WarOfResistanceLive/)
 
 ## 介绍
 
