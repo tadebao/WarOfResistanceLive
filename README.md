@@ -33,6 +33,17 @@
 
 该项目使用的爬虫是基于 [weibo-crawler](https://github.com/dataabc/weibo-crawler) 项目的简化及修改实现(**仅供研究使用**)，感谢作者 [dataabc](https://github.com/dataabc)。
 
+```python
+def get_json(self, params):
+        """获取网页中json数据"""
+        url = 'https://m.weibo.cn/api/container/getIndex?'
+        r = requests.get(url,
+                         params=params,
+                         headers=self.headers,
+                         verify=False)
+        return r.json()
+```
+
 更多内容可查看 [weibo-crawler](https://github.com/dataabc/weibo-crawler)。
 
 ## Hexo
