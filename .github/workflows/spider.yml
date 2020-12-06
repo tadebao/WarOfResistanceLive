@@ -10,7 +10,7 @@ env:
 on:
   # 定时触发，每隔 2 小时更新一次(https://crontab.guru)
   schedule:
-    - cron: "0 */2 * * *"
+    - cron: "0 7-23/2 * * *"
 
   # 允许手动触发 Actions
   workflow_dispatch:
