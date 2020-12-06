@@ -8,7 +8,7 @@ env:
 
 # Controls when the action will run.
 on:
-  # 定时触发，每隔 2 小时更新一次(https://crontab.guru)
+  # 定时触发，在 7:00-23:00 间每隔 2 小时更新一次(https://crontab.guru)
   schedule:
     - cron: "0 7-23/2 * * *"
 
