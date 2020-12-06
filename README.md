@@ -10,10 +10,13 @@
 
 下一个 **6** 年，他们已经在路上。
 
+**预览地址**：[https://kokohuang.github.io/WarOfResistanceLive](https://kokohuang.github.io/WarOfResistanceLive/)
+
 ## 介绍
 
 ``` yaml
-├── resources # 存放微博数据
+├── .github/workflows # 工作流配置文件
+├── resources # 微博数据
 ├── site # 博客源码
 └── spider # 微博爬虫
 ```
@@ -35,6 +38,12 @@
 ## Hexo
 
 `Hexo` 是一款基于 `Node.js` 的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在 `GitHub Pages` 上，还有丰富的主题可供挑选。关于如何安装使用 `Hexo` 可详细查看官方文档：[https://hexo.io/zh-cn/docs/](https://hexo.io/zh-cn/docs/)。
+
+RSS订阅地址：
+
+```
+https://kokohuang.github.io/WarOfResistanceLive/atom.xml
+```
 
 ## Github Actions 持续集成
 
