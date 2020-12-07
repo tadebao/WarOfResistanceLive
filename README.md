@@ -92,6 +92,8 @@ https://kokohuang.github.io/WarOfResistanceLive/atom.xml
 
 `workflow` 详细配置可查看 [spider.yml](./.github/workflows/spider.yml)
 
+更多关于 `Github Action` 的内容可查看 [官方文档](https://docs.github.com/cn/free-pro-team@latest/actions)
+
 ## 许可证
 
 [LICENSE](./LICENSE)
