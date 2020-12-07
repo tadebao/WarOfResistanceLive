@@ -1,7 +1,10 @@
 # 抗战直播
 
+## 预览地址
+
 **预览地址**：[https://kokohuang.github.io/WarOfResistanceLive](https://kokohuang.github.io/WarOfResistanceLive/)
 
+## 前言
 在目前浮躁的互联网环境下，做一件好事不难，难的是连续8年做一件有意义的事。
 
 在微博上有这样一位博主，从2012年7月7日开始，截至到2020年9月2日，[@抗战直播](https://weibo.com/kzzb) 以图文形式，记录了从**1937年7月7日至1945年8月15日**中华民族全面抗战的这段历史。**2980** 天，从未间断，平均每天 **12** 条，累计 **35214** 篇。
@@ -44,6 +47,17 @@ def get_json(self, params):
         return r.json()
 ```
 
+安装依赖：
+
+```shell
+pip3 install -r requirements.txt
+```
+
+使用：
+```shell
+python weibo.py
+```
+
 更多内容可查看 [weibo-crawler](https://github.com/dataabc/weibo-crawler)。
 
 ## Hexo
@@ -66,13 +80,13 @@ https://kokohuang.github.io/WarOfResistanceLive/atom.xml
 
 - [actions/setup-python@v2](https://github.com/actions/setup-python)
 
+- [actions/setup-node@v1](https://github.com/actions/setup-node)
+
 - [actions/cache@v2](https://github.com/actions/cache)
 
 - [EndBug/add-and-commit@v5](https://github.com/EndBug/add-and-commit)
 
 - [ad-m/github-push-action@master](https://github.com/ad-m/github-push-action)
-
-- [actions/setup-node@v1](https://github.com/actions/setup-node)
 
 - [peaceiris/actions-gh-pages@v3](https://github.com/peaceiris/actions-gh-pages)
 
