@@ -24,7 +24,7 @@
 └── spider # 微博爬虫
 ```
 
-本项目是一个主要由 `Python` 爬虫 + `Hexo` 博客组成的项目，开源在 `GitHub` 上，并且部署于 `Github Pages`。目前包含以下功能：
+本项目是一个主要由 `Python` 爬虫 + `Hexo` 博客 + `Github Actions`持续集成服务组成的开源项目，并且部署于 `Github Pages`。目前包含以下功能：
 
 - 每日定时自动同步更新数据
 - 查看博主目前所有的微博数据
