@@ -2,18 +2,19 @@
 
 name: Spider Bot
 
-# 设置时区
-env:
-  TZ: Asia/Shanghai
-
 # Controls when the action will run.
 on:
-  # 定时触发，在 7:00-23:00 间每隔 2 小时更新一次(https://crontab.guru)
+  # 定时触发，在 8:00-24:00 间每隔 2 小时更新一次(https://crontab.guru)
+  # 由于 cron 设定的时间为 UTC 时间，所以 +8 即为北京时间
   schedule:
-    - cron: "0 7-23/2 * * *"
+    - cron: "0 0-16/2 * * *"
 
   # 允许手动触发 Actions
   workflow_dispatch:
+
+# 设置时区
+env:
+  TZ: Asia/Shanghai
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -43,7 +44,7 @@ jobs:
           key: ${{ runner.os }}-pip-${{ hashFiles('./spider/requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
-      
+
       # 安装 pip 依赖
       - name: Install Pip Dependencies
         working-directory: ./spider
