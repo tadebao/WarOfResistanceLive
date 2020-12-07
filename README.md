@@ -4,6 +4,8 @@
 
 **预览地址**：[https://kokohuang.github.io/WarOfResistanceLive](https://kokohuang.github.io/WarOfResistanceLive/)
 
+![](./images/screen.jpg)
+
 ## 前言
 在目前浮躁的互联网环境下，做一件好事不难，难的是连续8年做一件有意义的事。
 
