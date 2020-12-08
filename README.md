@@ -4,6 +4,8 @@
 
 **预览地址**：[https://kokohuang.github.io/WarOfResistanceLive](https://kokohuang.github.io/WarOfResistanceLive/)
 
+**本项目数据来源**：[@抗战直播](https://weibo.com/kzzb)
+
 ![](./images/screen.jpg)
 
 ## 前言
